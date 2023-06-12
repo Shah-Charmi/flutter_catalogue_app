@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_catalogue/home_page.dart';
+import 'package:flutter_catalogue/pages/home_page.dart';
+import 'package:flutter_catalogue/pages/login_page.dart';
 
-void main(){
+void main() {
   runApp(MyApp());
 }
 
@@ -10,13 +11,20 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
     // return Container(
     //   child: Text("Welcome to flutter tutorial"),
     // );
     //return const Placeholder();
     return MaterialApp(
-      home: HomePage()
+      themeMode: ThemeMode.light,
+      // darkTheme: ThemeData(brightness: Brightness.dark),
+      theme: ThemeData(primarySwatch: Colors.deepPurple),
+      initialRoute: "/home",
+      routes: {
+        "/": (context) => LoginPage(),
+        "/home": (context) => HomePage(),
+        "/login": (context) => LoginPage()
+      },
     );
   }
 }
